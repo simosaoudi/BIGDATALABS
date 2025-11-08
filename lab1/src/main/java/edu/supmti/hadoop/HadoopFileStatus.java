@@ -5,8 +5,9 @@ import org.apache.hadoop.fs.*;
 
 public class HadoopFileStatus {
     public static void main(String[] args) {
- // TODO Auto-generated method stub
+ 
         Configuration conf = new Configuration();
+        conf.set("fs.defaultFS", "hdfs://hadoop-master:9000");
         FileSystem fs;
         try {
         fs = FileSystem.get(conf);
@@ -37,7 +38,7 @@ public class HadoopFileStatus {
                     }
         fs.rename(filepath, new Path("/user/root/input", "achats.txt")) ;
         } catch (IOException e) {
-        // TODO Auto-generated catch block
+
         e.printStackTrace();
         }
         }
